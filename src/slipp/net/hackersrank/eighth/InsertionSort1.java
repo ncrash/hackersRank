@@ -13,26 +13,16 @@ import java.util.Scanner;
 public class InsertionSort1 {
     public static void insertIntoSorted(int[] ar) {
         // Fill up this function
-        final int lastIndex = ar.length - 1;
-        int endOfArrayNumber = ar[lastIndex];
-        int firstPopNumber = ar[lastIndex];
-
-        for (int i = (lastIndex - 1); i > -1; --i) {
-            if (ar[i] > endOfArrayNumber) {
-                ar[i+1] = ar[i];
-                printArray(ar);
-            } else {
-                ar[i+1] = endOfArrayNumber;
-                endOfArrayNumber = ar[i];
-            }
-
-            if (i == 0) {
-                if (ar[i] > firstPopNumber) {
-                    ar[i] = firstPopNumber;
-                }
-                printArray(ar);
-            }
+        int lastIndex = ar.length - 1;
+        int num = ar[lastIndex];
+        lastIndex--;
+        while (lastIndex >= 0 && ar[lastIndex] > num) {
+            ar[lastIndex + 1] = ar[lastIndex];
+            lastIndex--;
+            printArray(ar);
         }
+        ar[lastIndex + 1] = num;
+        printArray(ar);
     }
 
 
